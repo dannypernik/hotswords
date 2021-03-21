@@ -41,7 +41,7 @@ def about():
     return render_template('about.html')
 
 @app.route('/draft')
-def reviews():
+def draft():
     return render_template('draft.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
