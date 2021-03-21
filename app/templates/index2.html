@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block head %}
+  {{ super() }}
+  <meta property="og:title" content="HOTSWORDS Lava Rock Kebabs" />
+  <meta property="og:description" content="They hot" />
+  <meta property="og:image" content="{{ url_for('static', filename='img/og-image.jpg') }}" />
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+{% endblock head %}
+
+{% block navbar %}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="row justify-content-center alert alert-info">
+          <div class="col-sm-11 col-md-10 col-lg-9">
+            <div role="alert">{{ message }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <nav class="navbar home-nav">
+    <div class="row justify-content-center">
+      <div class="col-sm-11 col-xl-10">
+        <ul class="d-none d-md-flex p-5 justify-content-end">
+          <li><a href="#food" data-text="menu">menu</a></li>
+          <li><a href="order online" data-text="order online">order online</a></li>
+          <li><a href="{{ url_for('about') }}" data-text="about">about</a></li>
+        </ul>
+        <ul class="d-flex d-md-none p-4 justify-content-center">
+          <li><a href="#food" data-text="menu">menu</a></li>
+          <li><a href="" data-text="order online">order online</a></li>
+          <li><a href="{{ url_for('about') }}" data-text="about">about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+{% endblock navbar %}
+
+{% block content %}
+
+    <div id="home" class="home-section inverse text-center">
+      <div class="row justify-content-center">
+        <div class="col-11">
+          <img id="home-logo" class="img-fluid"
+            src="{{ url_for('static', filename='img/logo.svg') }}" alt="HOTSWORDS">
+        </div>
+      </div>
+      <div class="home-next row">
+        <a href="#food">
+          <h2>
+            MENU
+          </h2>
+          <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi
+              bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+
+
+    <div id="food" class="home-section">
+      <div class="sticky-header row justify-content-center">
+        <div class="col-3 col-md-2 d-flex p-2">
+          <img id="hs-icon" class="img-fluid"
+            src="{{ url_for('static', filename='img/icon.svg') }}" >
+        </div>
+        <div id="food-header" class="col-9">
+          <div class="header-item">
+            <a href="#appetizers" data-text="appetizers">appetizers</a>
+          </div>
+          <div class="header-item">
+            <a href="#salads" data-text="salads">salads</a>
+          </div>
+          <div class="header-item">
+            <a href="#entrees" data-text="entrees">entrees</a>
+          </div>
+          <div class="header-item">
+            <a href="#wraps" data-text="wraps">wraps</a>
+          </div>
+          <div class="header-item">
+            <a href="#sides" data-text="sides">sides</a>
+          </div>
+          <div class="last header-item">
+            <a href="#desserts" data-text="desserts">desserts</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <h1 id="appetizers" class="food-title">APPETIZERS</h1>
+          <div class="row">
+            <div class="col-md-6">
+              {% for food in a %}
+                <div class="row mb-2">
+                  <div class="food-name col-6">
+                    {{ food.name }}
+                  </div>
+                  <div class="food-price col-6 text-end">
+                    ${{ food.price }}
+                  </div>
+                  <div class="food-info col">
+                    {{ food.description }}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+
+            <div class="col-md-6">
+
+            </div>
+          </div>
+
+          <h1 id="salads" class="food-title">SALADS</h1>
+          <div class="row">
+            <div class="col-md-6">
+              {% for food in sal %}
+                <div class="row mb-2">
+                  <div class="food-name col-6">
+                    {{ food.name }}
+                  </div>
+                  <div class="food-price col-6 text-end">
+                    ${{ food.price }}
+                  </div>
+                  <div class="food-info col">
+                    {{ food.description }}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+
+            <div class="col-md-6">
+
+            </div>
+          </div>
+
+          <h1 id="entrees" class="food-title">ENTREES</h1>
+          <div class="row">
+            <div class="col-md-6">
+              {% for food in e %}
+                <div class="row mb-2">
+                  <div class="food-name col-6">
+                    {{ food.name }}
+                  </div>
+                  <div class="food-price col-6 text-end">
+                    ${{ food.price }}
+                  </div>
+                  <div class="food-info col">
+                    {{ food.description }}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+
+            <div class="col-md-6">
+
+            </div>
+          </div>
+
+          <h1 id="wraps" class="food-title">WRAPS</h1>
+          <div class="row">
+            <div class="col-md-6">
+              {% for food in w %}
+                <div class="row mb-2">
+                  <div class="food-name col-6">
+                    {{ food.name }}
+                  </div>
+                  <div class="food-price col-6 text-end">
+                    ${{ food.price }}
+                  </div>
+                  <div class="food-info col">
+                    {{ food.description }}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+
+            <div class="col-md-6">
+
+            </div>
+          </div>
+
+          <h1 id="sides" class="food-title">SIDES</h1>
+          <div class="row">
+            <div class="col-md-6">
+              {% for food in sid %}
+                <div class="row mb-2">
+                  <div class="food-name col-6">
+                    {{ food.name }}
+                  </div>
+                  <div class="food-price col-6 text-end">
+                    ${{ food.price }}
+                  </div>
+                  <div class="food-info col">
+                    {{ food.description }}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+
+            <div class="col-md-6">
+
+            </div>
+          </div>
+
+          <h1 id="desserts" class="food-title">DESSERTS</h1>
+          <div class="row">
+            <div class="col-md-6">
+              {% for food in d %}
+                <div class="row mb-2">
+                  <div class="food-name col-6">
+                    {{ food.name }}
+                  </div>
+                  <div class="food-price col-6 text-end">
+                    ${{ food.price }}
+                  </div>
+                  <div class="food-info col">
+                    {{ food.description }}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+
+            <div class="col-md-6">
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="free-trial" class="home-section inverse">
+      <div class="row justify-content-center">
+
+      </div>
+    </div>
+
+    <div id="contact" class="home-section">
+      <div class="row justify-content-center">
+        <div class="col-11 col-md-8">
+          <h1 class="page-title">Send us a message</h1>
+
+          <form id="inquiry-form" action="" method="post">
+            {{ form.hidden_tag() }}
+            <p class="mb-3">{{ form.first_name }}</p>
+            <p class="mb-3">{{ form.email }}</p>
+            <p class="mb-3">{{ form.phone }}</p>
+            <p class="mb-3">{{ form.subject }}</p>
+            <p class="mb-3">{{ form.message(rows='4') }}</p>
+            <input type="submit" class='g-recaptcha', data-sitekey='6Lc3IBcaAAAAANQvPMR7J9MhHZyykxuamsKb4561', data-callback='onSubmit', data-action='submit' />
+          </form>
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}
+
+{% block scripts %}
+  {{ super() }}
+  <script type="text/javascript" src="{{ url_for('static', filename='js/zenscroll-min.js') }}"></script>
+  <script type="text/javascript">
+    zenscroll.setup(null, 0);
+  </script>
+
+  <script type="text/javascript">
+   function onSubmit(token) {
+     document.getElementById("inquiry-form").submit();
+   }
+ </script>
+{% endblock scripts %}
