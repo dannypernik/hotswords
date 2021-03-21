@@ -6011,6 +6011,12 @@ button:hover, .btn:hover, input[type=submit]:hover, .menu-link:hover {
   padding-top: 133px;
 }
 
+.food-name, .food-price {
+  font-weight: 600;
+  color: #b11e25;
+  text-transform: uppercase;
+}
+
 @media screen and (max-width: 833px) {
   .food-title {
     margin-top: -99px;

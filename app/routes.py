@@ -2,7 +2,7 @@ from flask import Flask, render_template, flash, Markup, redirect, url_for, requ
 from app import app, db
 from app.forms import InquiryForm, EmailForm, SignupForm, LoginForm, EditProfileForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import User, Food
 from werkzeug.urls import url_parse
 from datetime import datetime
 from app.email import send_inquiry_email
@@ -17,6 +17,13 @@ def before_request():
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     form = InquiryForm()
+    appetizers = Food.query.filter_by(category='Appetizers').all()
+    salads = Food.query.filter_by(category='Salads').all()
+    entrees = Food.query.filter_by(category='Entrees').all()
+    wraps = Food.query.filter_by(category='Wraps').all()
+    sides = Food.query.filter_by(category='Sides').all()
+    desserts = Food.query.filter_by(category='Desserts').all()
+
     if form.validate_on_submit():
         user = User(first_name=form.first_name.data, email=form.email.data, phone=form.phone.data)
         message = form.message.data
@@ -26,7 +33,8 @@ def index():
         alert = "Thank you for your message. We will be in touch!"
         print(app.config['ADMINS'])
         flash(alert)
-    return render_template('index.html', form=form)
+    return render_template('index.html', form=form, a=appetizers, sal=salads, e=entrees, \
+        w=wraps, sid=sides, d=desserts)
 
 @app.route('/about')
 def about():
