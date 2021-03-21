@@ -40,9 +40,9 @@ def index():
 def about():
     return render_template('about.html')
 
-@app.route('/reviews')
+@app.route('/draft')
 def reviews():
-    return render_template('reviews.html')
+    return render_template('draft.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
