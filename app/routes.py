@@ -7,6 +7,13 @@ from werkzeug.urls import url_parse
 from datetime import datetime
 from app.email import send_inquiry_email
 
+appetizers = Food.query.filter_by(category='appetizers').all()
+salads = Food.query.filter_by(category='salads').all()
+entrees = Food.query.filter_by(category='entrees').all()
+wraps = Food.query.filter_by(category='wraps').all()
+sides = Food.query.filter_by(category='sides').all()
+desserts = Food.query.filter_by(category='desserts').all()
+
 @app.before_request
 def before_request():
     if current_user.is_authenticated:
@@ -17,13 +24,6 @@ def before_request():
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     form = InquiryForm()
-    appetizers = Food.query.filter_by(category='appetizers').all()
-    salads = Food.query.filter_by(category='salads').all()
-    entrees = Food.query.filter_by(category='entrees').all()
-    wraps = Food.query.filter_by(category='wraps').all()
-    sides = Food.query.filter_by(category='sides').all()
-    desserts = Food.query.filter_by(category='desserts').all()
-
     if form.validate_on_submit():
         user = User(first_name=form.first_name.data, email=form.email.data, phone=form.phone.data)
         message = form.message.data
