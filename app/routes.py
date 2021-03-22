@@ -42,7 +42,8 @@ def about():
 
 @app.route('/draft')
 def draft():
-    return render_template('draft.html')
+    return render_template('draft.html', a=appetizers, sal=salads, e=entrees, \
+        w=wraps, sid=sides, d=desserts)
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
