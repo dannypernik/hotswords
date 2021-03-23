@@ -5746,7 +5746,7 @@ a:before {
   visibility: hidden;
 }
 
-button, .btn {
+.btn {
   display: block;
   margin: 2rem auto;
   padding: 1rem 2rem;
@@ -5773,7 +5773,7 @@ button, .btn {
   padding: 0.5rem 2rem;
 }
 
-button:hover, .btn:hover, input[type=submit]:hover, .menu-link:hover {
+.btn:hover, .menu-link:hover {
   background-color: #403083;
   border-color: #403083;
   color: white;
@@ -5959,10 +5959,6 @@ button:hover, .btn:hover, input[type=submit]:hover, .menu-link:hover {
   overflow: auto;
 }
 
-.home-section button {
-  margin: calc(3rem + 1vw) auto 0;
-}
-
 .home-section.inverse {
   color: white;
 }
@@ -5981,6 +5977,7 @@ button:hover, .btn:hover, input[type=submit]:hover, .menu-link:hover {
   top: 0;
   border-bottom: 1px solid #2e225e;
   background-color: #2e225e;
+  z-index: 100;
 }
 
 #food-header {
@@ -6029,6 +6026,30 @@ button:hover, .btn:hover, input[type=submit]:hover, .menu-link:hover {
     padding-top: 177px;
   }
 }
+.glider-contain {
+  max-width: 360px;
+}
+
+.glider div {
+  padding: 0 5px;
+}
+
+.glider p {
+  max-width: 350px;
+  text-align: center;
+}
+
+.glider-prev, .glider-next {
+  top: auto;
+  bottom: 11px;
+  left: 10px;
+}
+
+.glider-next {
+  right: 10px;
+  left: auto;
+}
+
 .home-next {
   display: table;
   margin: calc(5rem + 1vw) auto 5rem;

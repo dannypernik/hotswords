@@ -2,11 +2,12 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block head %}
-  {{ super() }}
   <meta property="og:title" content="HOTSWORDS Lava Rock Kebabs" />
   <meta property="og:description" content="They hot" />
   <meta property="og:image" content="{{ url_for('static', filename='img/og-image.jpg') }}" />
   <script src="https://www.google.com/recaptcha/api.js"></script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/glider.min.css') }}">
+  {{ super() }}
 {% endblock head %}
 
 {% block navbar %}
@@ -95,7 +96,7 @@
         <div class="col-10">
           <h1 id="appetizers" class="food-title">APPETIZERS</h1>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 order-2">
               {% for food in a %}
                 <div class="row mb-2">
                   <div class="food-name col-9">
@@ -111,8 +112,31 @@
               {% endfor %}
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-5 offset-md-1 order-1 order-md-3">
+              <div class="glider-contain">
+                <div class="glider">
+                  <div>
+                    <img src="{{ url_for('static', filename='img/hummus.jpg') }}">
+                    <p class="my-2">Hummus</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/baba-ganoush.jpg') }}">
+                    <p class="my-2">Baba Ganoush</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/tzatziki.jpg') }}">
+                    <p class="my-2">Tzatziki</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/falafel.jpg') }}">
+                    <p class="my-2">Falafel</p>
+                  </div>
+                </div>
 
+                <div aria-label="Previous" class="glider-prev">‹</div>
+                <div aria-label="Next" class="glider-next">›</div>
+                <div role="tablist" class="dots"></div>
+              </div>
             </div>
           </div>
 
@@ -134,14 +158,37 @@
               {% endfor %}
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-5 offset-md-1 order-1 order-md-3">
+              <div class="glider-contain">
+                <div class="glider">
+                  <div>
+                    <img src="{{ url_for('static', filename='img/hummus.jpg') }}">
+                    <p class="my-2">Hummus</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/baba-ganoush.jpg') }}">
+                    <p class="my-2">Baba Ganoush</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/tzatziki.jpg') }}">
+                    <p class="my-2">Tzatziki</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/falafel.jpg') }}">
+                    <p class="my-2">Falafel</p>
+                  </div>
+                </div>
 
+                <div aria-label="Previous" class="glider-prev">‹</div>
+                <div aria-label="Next" class="glider-next">›</div>
+                <div role="tablist" class="dots"></div>
+              </div>
             </div>
           </div>
 
           <h1 id="entrees" class="food-title">ENTREES</h1>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 order-2">
               {% for food in e %}
                 <div class="row mb-2">
                   <div class="food-name col-9">
@@ -157,14 +204,37 @@
               {% endfor %}
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-5 offset-md-1 order-1 order-md-3">
+              <div class="glider-contain">
+                <div class="glider">
+                  <div>
+                    <img src="{{ url_for('static', filename='img/hummus.jpg') }}">
+                    <p class="my-2">Hummus</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/baba-ganoush.jpg') }}">
+                    <p class="my-2">Baba Ganoush</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/tzatziki.jpg') }}">
+                    <p class="my-2">Tzatziki</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/falafel.jpg') }}">
+                    <p class="my-2">Falafel</p>
+                  </div>
+                </div>
 
+                <div aria-label="Previous" class="glider-prev">‹</div>
+                <div aria-label="Next" class="glider-next">›</div>
+                <div role="tablist" class="dots"></div>
+              </div>
             </div>
           </div>
 
           <h1 id="wraps" class="food-title">WRAPS</h1>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 order-2">
               {% for food in w %}
                 <div class="row mb-2">
                   <div class="food-name col-9">
@@ -180,14 +250,37 @@
               {% endfor %}
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-5 offset-md-1 order-1 order-md-3">
+              <div class="glider-contain">
+                <div class="glider">
+                  <div>
+                    <img src="{{ url_for('static', filename='img/hummus.jpg') }}">
+                    <p class="my-2">Hummus</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/baba-ganoush.jpg') }}">
+                    <p class="my-2">Baba Ganoush</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/tzatziki.jpg') }}">
+                    <p class="my-2">Tzatziki</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/falafel.jpg') }}">
+                    <p class="my-2">Falafel</p>
+                  </div>
+                </div>
 
+                <div aria-label="Previous" class="glider-prev">‹</div>
+                <div aria-label="Next" class="glider-next">›</div>
+                <div role="tablist" class="dots"></div>
+              </div>
             </div>
           </div>
 
           <h1 id="sides" class="food-title">SIDES</h1>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 order-2">
               {% for food in sid %}
                 <div class="row mb-2">
                   <div class="food-name col-9">
@@ -203,14 +296,37 @@
               {% endfor %}
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-5 offset-md-1 order-1 order-md-3">
+              <div class="glider-contain">
+                <div class="glider">
+                  <div>
+                    <img src="{{ url_for('static', filename='img/hummus.jpg') }}">
+                    <p class="my-2">Hummus</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/baba-ganoush.jpg') }}">
+                    <p class="my-2">Baba Ganoush</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/tzatziki.jpg') }}">
+                    <p class="my-2">Tzatziki</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/falafel.jpg') }}">
+                    <p class="my-2">Falafel</p>
+                  </div>
+                </div>
 
+                <div aria-label="Previous" class="glider-prev">‹</div>
+                <div aria-label="Next" class="glider-next">›</div>
+                <div role="tablist" class="dots"></div>
+              </div>
             </div>
           </div>
 
           <h1 id="desserts" class="food-title">DESSERTS</h1>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 order-2">
               {% for food in d %}
                 <div class="row mb-2">
                   <div class="food-name col-9">
@@ -226,8 +342,31 @@
               {% endfor %}
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-5 offset-md-1 order-1 order-md-3">
+              <div class="glider-contain">
+                <div class="glider">
+                  <div>
+                    <img src="{{ url_for('static', filename='img/hummus.jpg') }}">
+                    <p class="my-2">Hummus</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/baba-ganoush.jpg') }}">
+                    <p class="my-2">Baba Ganoush</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/tzatziki.jpg') }}">
+                    <p class="my-2">Tzatziki</p>
+                  </div>
+                  <div>
+                    <img src="{{ url_for('static', filename='img/falafel.jpg') }}">
+                    <p class="my-2">Falafel</p>
+                  </div>
+                </div>
 
+                <div aria-label="Previous" class="glider-prev">‹</div>
+                <div aria-label="Next" class="glider-next">›</div>
+                <div role="tablist" class="dots"></div>
+              </div>
             </div>
           </div>
 
@@ -266,6 +405,25 @@
   <script type="text/javascript" src="{{ url_for('static', filename='js/zenscroll-min.js') }}"></script>
   <script type="text/javascript">
     zenscroll.setup(null, 0);
+  </script>
+
+  <script src="{{ url_for('static', filename='js/glider.min.js') }}"></script>
+  <script type="text/javascript">
+    window.addEventListener('load', function(){
+      [].forEach.call(document.querySelectorAll('.glider'), function (ele) {
+        new Glider(ele, {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          draggable: true,
+          scrollLock: true,
+          duration: 3,
+          arrows: {
+              prev: ele.parentNode.querySelector('.glider-prev'),
+              next: ele.parentNode.querySelector('.glider-next')
+          }
+        });
+      });
+    });
   </script>
 
   <script type="text/javascript">
