@@ -1,6 +1,6 @@
 """add food table
 
-Revision ID: 6d075a061dc8
+Revision ID: 0647e679a9ad
 Revises: 35ac42314a15
 Create Date: 2021-03-20 14:12:21.670718
 
