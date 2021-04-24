@@ -50,7 +50,7 @@ class Post(db.Model):
 class Food(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
-    price = db.Column(db.Numeric(precision = 4, asdecimal = True))
+    price = db.Column(db.String(5))
     description = db.Column(db.String(1024))
     category = db.Column(db.String(64))
 
