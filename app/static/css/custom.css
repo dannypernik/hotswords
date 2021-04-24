@@ -5818,7 +5818,7 @@ a:before {
 #menu-btn {
   display: flex;
   justify-content: flex-end;
-  margin: 26px 0 26px auto;
+  margin: auto;
   color: white;
   text-decoration: none;
   cursor: pointer;
