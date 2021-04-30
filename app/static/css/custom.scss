@@ -125,6 +125,11 @@ a:before {
   font-size: 1.7rem;
 }
 
+.btn.sm {
+  font-size: 1.4rem;
+  padding: 0.75rem;
+}
+
 .white {
   color: white;
 }
@@ -144,6 +149,12 @@ a:before {
 .btn:hover, .menu-link:hover {
   background-color: $hover-color;
   border-color: $hover-color;
+  color: white;
+}
+
+.btn.clr:hover {
+  background-color: transparent;
+  border-color: $secondary-color;
   color: white;
 }
 

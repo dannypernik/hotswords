@@ -78,11 +78,11 @@
 
     <div id="food" class="home-section">
       <div class="sticky-header row justify-content-center">
-        <div class="col-3 col-md-2 d-flex p-2">
+        <div class="d-none d-md-flex col-md-2 p-2">
           <img id="hs-icon" class="img-fluid"
             src="{{ url_for('static', filename='img/icon.svg') }}" >
         </div>
-        <div id="food-header" class="col-9">
+        <div id="food-header" class="col-9 col-md-7">
           <div class="header-item">
             <a href="#appetizers" data-text="appetizers">appetizers</a>
           </div>&bull;
@@ -101,6 +101,9 @@
           <div class="last header-item">
             <a href="#desserts" data-text="desserts">desserts</a>
           </div>
+        </div>
+        <div class="col-3 col-md-2">
+          <a class="btn clr sm" href="#">ORDER</a>
         </div>
       </div>
 
