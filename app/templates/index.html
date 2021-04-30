@@ -102,8 +102,8 @@
             <a href="#desserts" data-text="desserts">desserts</a>
           </div>
         </div>
-        <div class="col-3 col-md-2">
-          <a class="btn clr sm" href="#">ORDER</a>
+        <div class="d-flex col-3 col-md-2">
+          <a class="btn clr sm m-auto" href="#">ORDER</a>
         </div>
       </div>
 
@@ -419,6 +419,9 @@
           </form>
         </div>
       </div>
+      {% block footer %}
+        {{ super() }}
+      {% endblock footer %}
     </div>
 
 {% endblock content %}
