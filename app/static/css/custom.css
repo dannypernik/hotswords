@@ -6010,7 +6010,7 @@ a:before {
   text-transform: uppercase;
 }
 
-.anchor-margin {
+.category-title {
   margin-top: -81px;
   padding-top: 133px;
 }
@@ -6022,13 +6022,13 @@ a:before {
 }
 
 @media screen and (max-width: 833px) {
-  .food-title {
+  .category-title {
     margin-top: -99px;
     padding-top: 144px;
   }
 }
-@media screen and (max-width: 449px) {
-  .food-title {
+@media screen and (max-width: 461px) {
+  .category-title {
     margin-top: -137px;
     padding-top: 177px;
   }
