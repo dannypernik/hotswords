@@ -5927,8 +5927,9 @@ a:before {
 
 .home-nav {
   position: absolute;
-  left: 0;
-  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
   background-color: transparent;
   border: none;
 }
@@ -5941,10 +5942,15 @@ a:before {
   color: white;
   font-size: 2rem;
   text-decoration: none;
-  padding: 4rem 2rem;
+  padding: 4rem 0;
   text-transform: uppercase;
 }
 
+@media screen and (max-width: 449px) {
+  .home-nav a {
+    font-size: 1.75rem;
+  }
+}
 .home-nav a:focus, .home-nav a:hover {
   font-weight: 600;
 }
