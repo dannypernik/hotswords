@@ -1,135 +1,131 @@
-{% extends "bootstrap/base.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+      {% block title %}
+        {% if title %}
+          {{ title }} -
+        {% endif %}
+          HOTSWORDS Lava Rock Kebabs
+      {% endblock title %}
 
-{% block title %}
-  {% if title %}
-    {{ title }} -
-  {% endif %}
-    HOTSWORDS Lava Rock Kebabs
-{% endblock title %}
+      {% block metas %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      {% endblock metas %}
 
-{% block head %}
-  <!-- Google Tag Manager
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-T7HJRW6');</script>
-  <!-- End Google Tag Manager -->
+      {% block styles %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css', u=last_updated) }}">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+          rel="stylesheet">
+      {% endblock styles %}
 
-  <!-- Global site tag (gtag.js) - Google Analytics
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-64JMLPC3H8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+      {% block scripts %}
+        <script async type="text/javascript" src="{{ url_for('static', filename='js/menu.js') }}"></script>
+      {% endblock scripts %}
 
-    gtag('config', 'G-64JMLPC3H8');
-  </script>
+      <!-- Google Tag Manager
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-T7HJRW6');</script>
+      <!-- End Google Tag Manager -->
 
-  <!-- Global site tag (gtag.js) - Google Analytics
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-186105291-1">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+      <!-- Global site tag (gtag.js) - Google Analytics
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-64JMLPC3H8"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'UA-186105291-1');
-</script>-->
+        gtag('config', 'G-64JMLPC3H8');
+      </script>
 
-  <!-- generics -->
-  <link rel="icon" href="{{ url_for('static', filename='img/favicons/favicon-32.png') }}" sizes="32x32">
-  <link rel="icon" href="{{ url_for('static', filename='img/favicons/favicon-128.png') }}" sizes="128x128">
-  <link rel="icon" href="{{ url_for('static', filename='img/favicons/favicon-192.png') }}" sizes="192x192">
+      <!-- Global site tag (gtag.js) - Google Analytics
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186105291-1">
+      </script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  <!-- Android -->
-  <link rel="shortcut icon" sizes="196x196" href="{{ url_for('static', filename='img/favicons/favicon-196.png') }}">
+        gtag('config', 'UA-186105291-1');
+      </script>-->
 
-  <!-- iOS -->
-  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicons/favicon-152.png') }}" sizes="152x152">
-  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicons/favicon-180.png') }}" sizes="180x180">
+      <!-- favicons -->
+      <link rel="icon" href="{{ url_for('static', filename='img/favicons/favicon-32.png') }}" sizes="32x32">
+      <link rel="icon" href="{{ url_for('static', filename='img/favicons/favicon-128.png') }}" sizes="128x128">
+      <link rel="icon" href="{{ url_for('static', filename='img/favicons/favicon-192.png') }}" sizes="192x192">
+      <link rel="shortcut icon" sizes="196x196" href="{{ url_for('static', filename='img/favicons/favicon-196.png') }}">
+      <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicons/favicon-152.png') }}" sizes="152x152">
+      <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicons/favicon-180.png') }}" sizes="180x180">
+      <meta name="msapplication-config" content="{{ url_for('static', filename='img/favicons/browserconfig.xml') }}" />
 
-  <!-- Windows 8.1 + IE11 and above -->
-  <meta name="msapplication-config" content="{{ url_for('static', filename='img/favicons/browserconfig.xml') }}" />
+    {% endblock head %}
+  </head>
 
-  {{ super() }}
-{% endblock head %}
+  <body>
+    <!-- Google Tag Manager (noscript) --
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T7HJRW6"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-{% block styles %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css', u=last_updated) }}">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
-    rel="stylesheet">
-{% endblock styles %}
-
-{% block body %}
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T7HJRW6"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-  {{ super() }}
-{% endblock body %}
-
-{% block navbar %}
-  <div class="site-nav">
-    <div class="row justify-content-center">
-      <div class="col-10">
-        <div class="row">
-          <div class="col-9">
-            <a href="{{ url_for('index') }}">
-              <img id="nav-img" src="{{ url_for('static', filename='img/icon.svg') }}" alt="HOTSWORDS">
-            </a>
-          </div>
-          <div class="col-3">
-            <a id="menu-btn" href="#" data-drawer-trigger aria-controls="site-menu" aria-expanded="false">
-              <div id="menu-title" class="d-none d-sm-block">Menu</div>
-              <img id="menu-icon" src="{{ url_for('static', filename='img/menu.svg') }}" alt="">
-            </a>
+    {% block navbar %}
+      <div class="site-nav">
+        <div class="row justify-content-center">
+          <div class="col-10">
+            <div class="row">
+              <div class="col-9">
+                <a href="{{ url_for('index') }}">
+                  <img id="nav-img" src="{{ url_for('static', filename='img/icon.svg') }}" alt="HOTSWORDS">
+                </a>
+              </div>
+              <div class="col-3">
+                <a id="menu-btn" href="#" data-drawer-trigger aria-controls="site-menu" aria-expanded="false">
+                  <div id="menu-title" class="d-none d-sm-block">Menu</div>
+                  <img id="menu-icon" src="{{ url_for('static', filename='img/menu.svg') }}" alt="">
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      {% for message in messages %}
-        <div class="alert alert-info" role="alert">{{ message }}</div>
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
 
-  {% include "_menu-content.html" %}
-{% endblock navbar %}
+      {% include "_menu-content.html" %}
+    {% endblock navbar %}
 
-{% block content %}
+    {% block content %}{% endblock content %}
 
-{% endblock content %}
-
-{% block footer %}
-  <footer class="footer">
-    <div class="row justify-content-center">
-      <div class="col-sm-10">
-        <p class="mb-2 mt-3">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-telephone lea" viewBox="0 0 16 16">
-            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-          </svg>
-          <a class="ms-2 white" href="tel:+1"></a>
-        </p>
-        <p class="mb-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
-          </svg>
-          <a class="ms-2 white" href="ordering@hotswords.com">ordering@hotswords.com</a>
-        </p>
-        <p class="">
-          <span class="me-3 h2">&copy;</span><script>document.write(new Date().getFullYear())</script>
-          Hotswords LLC
-        </p>
-      </div>
-    </div>
-  </footer>
-{% endblock footer %}
-
-{% block scripts %}
-  <script type="text/javascript" src="{{ url_for('static', filename='js/menu.js') }}"></script>
-{% endblock scripts %}
+    {% block footer %}
+      <footer class="footer">
+        <div class="row justify-content-center">
+          <div class="col-sm-10">
+            <p class="mb-2 mt-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-telephone lea" viewBox="0 0 16 16">
+                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+              </svg>
+              <a class="ms-2 white" href="tel:+1"></a>
+            </p>
+            <p class="mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+              </svg>
+              <a class="ms-2 white" href="ordering@hotswords.com">ordering@hotswords.com</a>
+            </p>
+            <p class="">
+              <span class="me-3 h2">&copy;</span><script>document.write(new Date().getFullYear())</script>
+              Hotswords LLC
+            </p>
+          </div>
+        </div>
+      </footer>
+    {% endblock footer %}
+  </body>
+</html>
