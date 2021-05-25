@@ -8,31 +8,37 @@
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/glider.min.css') }}">
   {{ super() }}
+
+
 {% endblock head %}
 
-{% block navbar %}
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      {% for message in messages %}
-        <div class="row justify-content-center alert alert-info">
-          <div class="col-sm-11 col-md-10 col-lg-9">
-            <div role="alert">{{ message }}</div>
-          </div>
-        </div>
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
-  <nav class="row justify-content-center justify-content-md-start">
-    <div class="home-nav col-11 offset-md-6 col-md-6 col-lg-5 col-xl-4">
-      <div><a href="#food" data-text="menu">menu</a></div>
-      <div><a href="#" data-text="order">order</a></div>
-      <div><a href="#contact" data-text="contact">contact</a></div>
-    </div>
-  </nav>
-{% endblock navbar %}
+{% block navbar %}{% endblock navbar %}
 
 {% block content %}
   <div id="home" class="home-section inverse text-center">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="row justify-content-center alert alert-info">
+            <div class="col-sm-11 col-md-10 col-lg-9">
+              <div role="alert">{{ message }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <nav class="row justify-content-center">
+      <div class="col-10">
+        <div class="row justify-content-center justify-content-md-end">
+          <div class="home-nav col col-md-7 col-lg-6 col-xl-5">
+            <div><a href="#food" data-text="menu">menu</a></div>
+            <div><a href="#" data-text="order">order</a></div>
+            <div><a href="#contact" data-text="contact">contact</a></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
     <div class="row justify-content-center">
       <div class="col-11">
         <img id="home-logo" class="img-fluid"
@@ -399,37 +405,36 @@
       </div>
     </div>
   </div>
-{% endblock content %}
 
-{% block scripts %}
-  {{ super() }}
-  <script type="text/javascript" src="{{ url_for('static', filename='js/zenscroll-min.js') }}"></script>
-  <script type="text/javascript">
-    zenscroll.setup(null, -1);
-  </script>
+  {% block end_scripts %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/zenscroll-min.js') }}"></script>
+    <script type="text/javascript">
+      zenscroll.setup(null, -1);
+    </script>
 
-  <script src="{{ url_for('static', filename='js/glider.min.js') }}"></script>
-  <script type="text/javascript">
-    window.addEventListener('load', function(){
-      [].forEach.call(document.querySelectorAll('.glider'), function (ele) {
-        new Glider(ele, {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          draggable: true,
-          scrollLock: true,
-          duration: 3,
-          arrows: {
-              prev: ele.parentNode.querySelector('.glider-prev'),
-              next: ele.parentNode.querySelector('.glider-next')
-          }
+    <script src="{{ url_for('static', filename='js/glider.min.js') }}"></script>
+    <script type="text/javascript">
+      window.addEventListener('load', function(){
+        [].forEach.call(document.querySelectorAll('.glider'), function (ele) {
+          new Glider(ele, {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            draggable: true,
+            scrollLock: true,
+            duration: 3,
+            arrows: {
+                prev: ele.parentNode.querySelector('.glider-prev'),
+                next: ele.parentNode.querySelector('.glider-next')
+            }
+          });
         });
       });
-    });
-  </script>
+    </script>
 
-  <script type="text/javascript">
-   function onSubmit(token) {
-     document.getElementById("inquiry-form").submit();
-   }
- </script>
-{% endblock scripts %}
+    <script type="text/javascript">
+     function onSubmit(token) {
+       document.getElementById("inquiry-form").submit();
+     }
+   </script>
+  {% endblock end_scripts %}
+{% endblock content %}
