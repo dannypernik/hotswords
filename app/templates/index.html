@@ -7,6 +7,8 @@
   <meta property="og:image" content="{{ url_for('static', filename='img/og-image.jpg') }}" />
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/glider.min.css') }}">
+  <link href="{{ url_for('static', filename="css/all.css" )}}" rel="stylesheet">
+  <script defer src="{{ url_for('static', filename="js/all.js") }}"></script>
   {{ super() }}
 {% endblock head %}
 
@@ -30,7 +32,7 @@
         <div class="row justify-content-center justify-content-md-end">
           <div class="home-nav col col-md-7 col-lg-6 col-xl-5">
             <div><a href="#food" data-text="menu">menu</a></div>
-            <div><a href="#" data-text="order">order</a></div>
+            <div><a href="" data-bs-toggle="modal" data-bs-target="#order-modal" data-text="order">order</a></div>
             <div><a href="#contact" data-text="contact">contact</a></div>
           </div>
         </div>
@@ -46,7 +48,7 @@
     <div class="home-next row">
       <a href="#food">
         <h2>
-          LET'S EAT
+          OPEN 24/7
         </h2>
         <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi
             bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -56,6 +58,29 @@
     </div>
   </div>
 
+  <div id="order-modal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="modal-header mt-3">
+              <h1 class="modal-title">Want free delivery?</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              Download the HOTSWORDS app and save.
+            </div>
+            <div class="text-end my-3">
+              <button type="button" class="btn m-1">Get the app</button>
+              <button type="button" class="btn sec m-1">Order online</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   {% include "_menu-content.html" %}
 
@@ -130,9 +155,12 @@
                   <p class="my-2">Falafel</p>
                 </div>
               </div>
-
-              <div aria-label="Previous" class="glider-prev">‹</div>
-              <div aria-label="Next" class="glider-next">›</div>
+              <div aria-label="Previous" class="glider-prev">
+                <i class="arrow fas fa-chevron-circle-left"></i>
+              </div>
+              <div aria-label="Next" class="glider-next">
+                <i class="arrow fas fa-chevron-circle-right"></i>
+              </div>
               <div role="tablist" class="dots"></div>
             </div>
           </div>
@@ -389,6 +417,25 @@
 
     <div class="row mt-5 justify-content-center">
       <div class="col-11 col-md-8">
+        <h1 class="page-title">Contact</h1>
+        <p>
+          <strong class="food-name">Location</strong> <br/>
+          2118 S Congress Ave<br/>
+          Austin, TX 787
+        </p>
+        <p>
+          <strong class="food-name">Phone</strong><br/>
+          (737) 333-8557
+        </p>
+        <p>
+          <strong class="food-name">Hours</strong><br/>
+          24/7
+        </p>
+      </div>
+    </div>
+
+    <div class="row mt-4 justify-content-center">
+      <div class="col-11 col-md-8">
         <h1 class="page-title">Send us a message</h1>
 
         <form id="inquiry-form" action="" method="post">
@@ -405,6 +452,8 @@
   </div>
 
   {% block end_scripts %}
+    <script src="{{ url_for('static', filename="js/bootstrap.js") }}"></script>
+
     <script type="text/javascript" src="{{ url_for('static', filename='js/zenscroll-min.js') }}"></script>
     <script type="text/javascript">
       zenscroll.setup(null, -1);
