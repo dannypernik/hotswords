@@ -399,6 +399,7 @@ a:before {
 .category-title  {
   margin-top: -81px;
   padding-top: 133px;
+  text-transform: uppercase;
 }
 
 .food-name, .food-price {
@@ -419,6 +420,10 @@ a:before {
     margin-top: -137px;
     padding-top: 177px;
   }
+}
+
+.img-caption {
+  text-transform: capitalize;
 }
 
 // Glider customizations

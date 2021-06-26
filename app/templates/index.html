@@ -91,25 +91,22 @@
           src="{{ url_for('static', filename='img/icon.svg') }}" >
       </div>
       <div id="food-header" class="col-9 col-md-7">
+        {% for c in categories[:-1] %}
+          <div class="header-item">
+            <a href="#{{ c[0].replace(" ","-") }}" data-text="{{ c[0].replace(" ","-") }}">
+              {{ c[0] }}
+            </a>
+          </div>&bull;
+        {% endfor %}
+
+        <!-- remove bullet separator after last category -->
         <div class="header-item">
-          <a href="#appetizers" data-text="appetizers">appetizers</a>
-        </div>&bull;
-        <div class="header-item">
-          <a href="#salads" data-text="salads">salads</a>
-        </div>&bull;
-        <div class="header-item">
-          <a href="#entrees" data-text="entrees">entrees</a>
-        </div>&bull;
-        <div class="header-item">
-          <a href="#wraps" data-text="wraps">wraps</a>
-        </div>&bull;
-        <div class="header-item">
-          <a href="#sides" data-text="sides">sides</a>
-        </div>&bull;
-        <div class="last header-item">
-          <a href="#desserts" data-text="desserts">desserts</a>
+          <a href="#{{ categories[-1][0].replace(" ","-") }}" data-text="{{ categories[-1][0].replace(" ","-") }}">
+            {{ categories[-1][0] }}
+          </a>
         </div>
       </div>
+
       <div class="d-flex col-3 col-md-2">
         <a class="btn clr sm m-auto" href="#">ORDER</a>
       </div>
@@ -117,284 +114,53 @@
 
     <div class="row justify-content-center">
       <div class="col-11 col-sm-10">
-        <h1 id="appetizers" class="category-title">APPETIZERS</h1>
-        <div class="row">
-          <div class="col-md-6 order-2">
-            {% for food in a %}
-              <div class="row mb-2">
-                <div class="food-name col-9">
-                  {{ food.name }}
-                </div>
-                <div class="food-price col-3 text-end">
-                  ${{ food.price }}
-                </div>
-                <div class="food-info col">
-                  {{ food.description }}
-                </div>
-              </div>
-            {% endfor %}
-          </div>
 
-          <div class="col-md-5 offset-md-1 order-1 order-md-3">
-            <div class="glider-contain">
-              <div class="glider">
-                <div>
-                  <img src="{{ url_for('static', filename='img/hummus.jpg') }}">
-                  <p class="my-2">Hummus</p>
+        {% for c in categories %}
+          <h1 id="{{ c[0].replace(" ","-") }}" class="category-title">{{ c[0] }}</h1>
+
+          <div class="row">
+            <div class="col-md-6 order-2">
+              {% for i in items %}
+                {% if i.category == c[0] %}
+                  <div class="row mb-2">
+                    <div class="food-name col-9">
+                      {{ i.name }}
+                    </div>
+                    <div class="food-price col-3 text-end">
+                      ${{ i.price }}
+                    </div>
+                    <div class="food-info col">
+                      {{ i.description }}
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="col-md-5 offset-md-1 order-1 order-md-3">
+              <div class="glider-contain">
+                <div class="glider">
+                  {% for i in items %}
+                      {% if i.category == c[0] and i.name.replace(" ","-") + '.jpg' in images %}:
+                        <div>
+                          <img src="{{ url_for('static', filename='img/' + i.name.replace(" ","-") + '.jpg') }}">
+                          <p class="img-caption my-2">{{ i.name }}</p>
+                        </div>
+                      {% endif %}
+                  {% endfor %}
                 </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/baba-ganoush.jpg') }}">
-                  <p class="my-2">Baba Ganoush</p>
+
+                <div aria-label="Previous" class="glider-prev">
+                  <i class="arrow fas fa-chevron-circle-left"></i>
                 </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/tzatziki.jpg') }}">
-                  <p class="my-2">Tzatziki</p>
+                <div aria-label="Next" class="glider-next">
+                  <i class="arrow fas fa-chevron-circle-right"></i>
                 </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/falafel.jpg') }}">
-                  <p class="my-2">Falafel</p>
-                </div>
+                <div role="tablist" class="dots"></div>
               </div>
-              <div aria-label="Previous" class="glider-prev">
-                <i class="arrow fas fa-chevron-circle-left"></i>
-              </div>
-              <div aria-label="Next" class="glider-next">
-                <i class="arrow fas fa-chevron-circle-right"></i>
-              </div>
-              <div role="tablist" class="dots"></div>
             </div>
           </div>
-        </div>
-
-        <h1 id="salads" class="category-title">SALADS</h1>
-        <div class="row">
-          <div class="col-md-6 order-2">
-            {% for food in sal %}
-              <div class="row mb-2">
-                <div class="food-name col-9">
-                  {{ food.name }}
-                </div>
-                <div class="food-price col-3 text-end">
-                  ${{ food.price }}
-                </div>
-                <div class="food-info col">
-                  {{ food.description }}
-                </div>
-              </div>
-            {% endfor %}
-          </div>
-
-          <div class="col-md-5 offset-md-1 order-1 order-md-3">
-            <div class="glider-contain">
-              <div class="glider">
-                <div>
-                  <img src="{{ url_for('static', filename='img/hummus.jpg') }}">
-                  <p class="my-2">Hummus</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/baba-ganoush.jpg') }}">
-                  <p class="my-2">Baba Ganoush</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/tzatziki.jpg') }}">
-                  <p class="my-2">Tzatziki</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/falafel.jpg') }}">
-                  <p class="my-2">Falafel</p>
-                </div>
-              </div>
-
-              <div aria-label="Previous" class="glider-prev">‹</div>
-              <div aria-label="Next" class="glider-next">›</div>
-              <div role="tablist" class="dots"></div>
-            </div>
-          </div>
-        </div>
-
-        <h1 id="entrees" class="category-title">ENTREES</h1>
-        <div class="row">
-          <div class="col-md-6 order-2">
-            {% for food in e %}
-              <div class="row mb-2">
-                <div class="food-name col-9">
-                  {{ food.name }}
-                </div>
-                <div class="food-price col-3 text-end">
-                  ${{ food.price }}
-                </div>
-                <div class="food-info col">
-                  {{ food.description }}
-                </div>
-              </div>
-            {% endfor %}
-          </div>
-
-          <div class="col-md-5 offset-md-1 order-1 order-md-3">
-            <div class="glider-contain">
-              <div class="glider">
-                <div>
-                  <img src="{{ url_for('static', filename='img/hummus.jpg') }}">
-                  <p class="my-2">Hummus</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/baba-ganoush.jpg') }}">
-                  <p class="my-2">Baba Ganoush</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/tzatziki.jpg') }}">
-                  <p class="my-2">Tzatziki</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/falafel.jpg') }}">
-                  <p class="my-2">Falafel</p>
-                </div>
-              </div>
-
-              <div aria-label="Previous" class="glider-prev">‹</div>
-              <div aria-label="Next" class="glider-next">›</div>
-              <div role="tablist" class="dots"></div>
-            </div>
-          </div>
-        </div>
-
-        <h1 id="wraps" class="category-title">WRAPS</h1>
-        <div class="row">
-          <div class="col-md-6 order-2">
-            {% for food in w %}
-              <div class="row mb-2">
-                <div class="food-name col-9">
-                  {{ food.name }}
-                </div>
-                <div class="food-price col-3 text-end">
-                  ${{ food.price }}
-                </div>
-                <div class="food-info col">
-                  {{ food.description }}
-                </div>
-              </div>
-            {% endfor %}
-          </div>
-
-          <div class="col-md-5 offset-md-1 order-1 order-md-3">
-            <div class="glider-contain">
-              <div class="glider">
-                <div>
-                  <img src="{{ url_for('static', filename='img/hummus.jpg') }}">
-                  <p class="my-2">Hummus</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/baba-ganoush.jpg') }}">
-                  <p class="my-2">Baba Ganoush</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/tzatziki.jpg') }}">
-                  <p class="my-2">Tzatziki</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/falafel.jpg') }}">
-                  <p class="my-2">Falafel</p>
-                </div>
-              </div>
-
-              <div aria-label="Previous" class="glider-prev">‹</div>
-              <div aria-label="Next" class="glider-next">›</div>
-              <div role="tablist" class="dots"></div>
-            </div>
-          </div>
-        </div>
-
-        <h1 id="sides" class="category-title">SIDES</h1>
-        <div class="row">
-          <div class="col-md-6 order-2">
-            {% for food in sid %}
-              <div class="row mb-2">
-                <div class="food-name col-9">
-                  {{ food.name }}
-                </div>
-                <div class="food-price col-3 text-end">
-                  ${{ food.price }}
-                </div>
-                <div class="food-info col">
-                  {{ food.description }}
-                </div>
-              </div>
-            {% endfor %}
-          </div>
-
-          <div class="col-md-5 offset-md-1 order-1 order-md-3">
-            <div class="glider-contain">
-              <div class="glider">
-                <div>
-                  <img src="{{ url_for('static', filename='img/hummus.jpg') }}">
-                  <p class="my-2">Hummus</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/baba-ganoush.jpg') }}">
-                  <p class="my-2">Baba Ganoush</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/tzatziki.jpg') }}">
-                  <p class="my-2">Tzatziki</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/falafel.jpg') }}">
-                  <p class="my-2">Falafel</p>
-                </div>
-              </div>
-
-              <div aria-label="Previous" class="glider-prev">‹</div>
-              <div aria-label="Next" class="glider-next">›</div>
-              <div role="tablist" class="dots"></div>
-            </div>
-          </div>
-        </div>
-
-        <h1 id="desserts" class="category-title">DESSERTS</h1>
-        <div class="row">
-          <div class="col-md-6 order-2">
-            {% for food in d %}
-              <div class="row mb-2">
-                <div class="food-name col-9">
-                  {{ food.name }}
-                </div>
-                <div class="food-price col-3 text-end">
-                  ${{ food.price }}
-                </div>
-                <div class="food-info col">
-                  {{ food.description }}
-                </div>
-              </div>
-            {% endfor %}
-          </div>
-
-          <div class="col-md-5 offset-md-1 order-1 order-md-3">
-            <div class="glider-contain">
-              <div class="glider">
-                <div>
-                  <img src="{{ url_for('static', filename='img/hummus.jpg') }}">
-                  <p class="my-2">Hummus</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/baba-ganoush.jpg') }}">
-                  <p class="my-2">Baba Ganoush</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/tzatziki.jpg') }}">
-                  <p class="my-2">Tzatziki</p>
-                </div>
-                <div>
-                  <img src="{{ url_for('static', filename='img/falafel.jpg') }}">
-                  <p class="my-2">Falafel</p>
-                </div>
-              </div>
-
-              <div aria-label="Previous" class="glider-prev">‹</div>
-              <div aria-label="Next" class="glider-next">›</div>
-              <div role="tablist" class="dots"></div>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
 
         <div class="home-next row">
           <a href="#contact">

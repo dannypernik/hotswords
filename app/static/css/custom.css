@@ -6328,6 +6328,7 @@ a:before {
 .category-title {
   margin-top: -81px;
   padding-top: 133px;
+  text-transform: uppercase;
 }
 
 .food-name, .food-price {
@@ -6348,6 +6349,10 @@ a:before {
     padding-top: 177px;
   }
 }
+.img-caption {
+  text-transform: capitalize;
+}
+
 .glider-contain {
   max-width: 360px;
 }
@@ -6361,22 +6366,17 @@ a:before {
   text-align: center;
 }
 
-.glider-slide img {
-  margin: 0 auto;
-  display: block;
-}
-
 .glider-prev, .glider-next {
   top: auto;
   bottom: calc(50% + 10px);
-  left: -39px;
+  left: -32px;
   color: #2e225e;
   text-align: center;
   width: 20px;
 }
 
 .glider-next {
-  right: -25px;
+  right: -15px;
   left: auto;
 }
 
