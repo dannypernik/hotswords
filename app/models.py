@@ -53,7 +53,6 @@ class Food(db.Model):
     price = db.Column(db.String(5))
     description = db.Column(db.String(1024))
     category = db.Column(db.String(64))
-    image = db.Column(db.String(64))
 
     def __repr__(self):
         return '<Food {}>'.format(self.name)
