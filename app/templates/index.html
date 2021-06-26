@@ -141,7 +141,7 @@
               <div class="glider-contain">
                 <div class="glider">
                   {% for i in items %}
-                      {% if i.category == c[0] and i.name.replace(" ","-") + '.jpg' in images %}:
+                      {% if i.category == c[0] and i.name.replace(" ","-") + '.jpg' in images %}
                         <div>
                           <img src="{{ url_for('static', filename='img/' + i.name.replace(" ","-") + '.jpg') }}">
                           <p class="img-caption my-2">{{ i.name }}</p>
