@@ -118,8 +118,8 @@
         {% for c in categories %}
           <h1 id="{{ c[0].replace(" ","-") }}" class="category-title">{{ c[0] }}</h1>
 
-          <div class="row">
-            <div class="col-md-6 order-2">
+          <div class="row justify-content-center">
+            <div class="col-md-6">
               {% for i in items %}
                 {% if i.category == c[0] %}
                   <div class="row mb-2">
@@ -137,11 +137,13 @@
               {% endfor %}
             </div>
 
-            <div class="col-md-5 offset-md-1 order-1 order-md-3">
+            <div class="col-11 col-md-5 offset-md-1">
               <div class="glider-contain">
                 <div class="glider">
+                  {% set count = namespace(value=0) %}
                   {% for i in items %}
                       {% if i.category == c[0] and i.name.replace(" ","-") + '.jpg' in images %}
+                        {% set count.value = count.value + 1 %}
                         <div>
                           <img src="{{ url_for('static', filename='img/' + i.name.replace(" ","-") + '.jpg') }}">
                           <p class="img-caption my-2">{{ i.name }}</p>
@@ -150,13 +152,15 @@
                   {% endfor %}
                 </div>
 
-                <div aria-label="Previous" class="glider-prev">
-                  <i class="arrow fas fa-chevron-circle-left"></i>
-                </div>
-                <div aria-label="Next" class="glider-next">
-                  <i class="arrow fas fa-chevron-circle-right"></i>
-                </div>
-                <div role="tablist" class="dots"></div>
+                {% if count.value > 1 %}
+                  <div aria-label="Previous" class="glider-prev">
+                    <i class="arrow fas fa-chevron-circle-left"></i>
+                  </div>
+                  <div aria-label="Next" class="glider-next">
+                    <i class="arrow fas fa-chevron-circle-right"></i>
+                  </div>
+                  <div role="tablist" class="dots"></div>
+                {% endif %}
               </div>
             </div>
           </div>

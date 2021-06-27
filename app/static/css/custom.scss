@@ -432,8 +432,8 @@ a:before {
   max-width: 360px;
 }
 
-.glider div {
-  padding: 0 5px;
+.glider-slide {
+  margin: 0 5px;
 }
 
 .glider p {
@@ -444,14 +444,14 @@ a:before {
 .glider-prev, .glider-next {
   top: auto;
   bottom: calc(50% + 10px);
-  left: -32px;
+  left: -40px;
   color: $primary-color;
   text-align: center;
   width: 20px;
 }
 
 .glider-next {
-  right: -15px;
+  right: -20px;
   left: auto;
 }
 
