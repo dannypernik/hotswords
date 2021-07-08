@@ -32,7 +32,8 @@
         <div class="row justify-content-center justify-content-md-end">
           <div class="home-nav col col-md-7 col-lg-6 col-xl-5">
             <div><a href="#food" data-text="menu">menu</a></div>
-            <div><a href="" data-bs-toggle="modal" data-bs-target="#order-modal" data-text="order">order</a></div>
+            <!--<div><a href="#" data-bs-toggle="modal" data-bs-target="#order-modal" data-text="order">order</a></div>-->
+            <div><a href="https://order.online/store/HOTSWORDS-1669218/" data-text="order">order</a></div>
             <div><a href="#contact" data-text="contact">contact</a></div>
           </div>
         </div>
@@ -63,7 +64,7 @@
       <div class="modal-content">
         <div class="container-fluid">
           <div class="row">
-            <div class="modal-header mt-3">
+            <div class="modal-header mt-2">
               <h1 class="modal-title">Want free delivery?</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
@@ -72,9 +73,49 @@
             <div class="row">
               Download the HOTSWORDS app and save.
             </div>
-            <div class="text-end my-3">
-              <button type="button" class="btn m-1">Get the app</button>
-              <button type="button" class="btn sec m-1">Order online</button>
+            <div class="mb-3 mt-1">
+              <button type="button" class="btn me-1" href="#" data-bs-toggle="modal" data-bs-target="#app-modal" data-bs-dismiss="modal">
+                Get the app
+              </button>
+              <button type="button" class="btn sec ms-1">
+                Order online
+              </button>
+              <div class="ms-1">
+                <a href="https://www.ezcater.com/catering/pvt/hotswords-3">
+                  Order catering
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="app-modal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="modal-header my-3">
+              <h1 class="modal-title">Select your download</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="row mb-3">
+              <div class="col">
+                <a href="#">
+                  <img class="app-download-btn" src="{{ url_for('static', filename='img/ios-download.svg') }}"
+                    alt="Download for iOS">
+                </a>
+              </div>
+              <div class="col">
+                <a href="#">
+                  <img class="app-download-btn" src="{{ url_for('static', filename='img/android-download.svg') }}"
+                    alt="Download for Android">
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -83,34 +124,36 @@
   </div>
 
   {% include "_menu-content.html" %}
-
-  <div id="food" class="home-section">
-    <div class="sticky-header row justify-content-center">
-      <div class="d-none d-md-flex col-md-2 p-2">
-        <img id="hs-icon" class="img-fluid"
-          src="{{ url_for('static', filename='img/icon.svg') }}" >
-      </div>
-      <div id="food-header" class="col-9 col-md-7">
-        {% for c in categories[:-1] %}
-          <div class="header-item">
-            <a href="#{{ c[0].replace(" ","-") }}" data-text="{{ c[0].replace(" ","-") }}">
-              {{ c[0] }}
-            </a>
-          </div>&bull;
-        {% endfor %}
-
-        <!-- remove bullet separator after last category -->
+  <div class="sticky-header row justify-content-center">
+    <div class="d-none d-md-flex col-md-2 p-2">
+      <img id="hs-icon" class="img-fluid"
+        src="{{ url_for('static', filename='img/icon.svg') }}" >
+    </div>
+    <div id="food-header" class="col-9 col-md-7">
+      {% for c in categories[:-1] %}
         <div class="header-item">
-          <a href="#{{ categories[-1][0].replace(" ","-") }}" data-text="{{ categories[-1][0].replace(" ","-") }}">
-            {{ categories[-1][0] }}
+          <a href="#{{ c[0].replace(" ","-") }}" data-text="{{ c[0].replace(" ","-") }}">
+            {{ c[0] }}
           </a>
-        </div>
-      </div>
+        </div>&bull;
+      {% endfor %}
 
-      <div class="d-flex col-3 col-md-2">
-        <a class="btn clr sm m-auto" href="#">ORDER</a>
+      <!-- remove bullet separator after last category -->
+      <div class="header-item">
+        <a href="#{{ categories[-1][0].replace(" ","-") }}" data-text="{{ categories[-1][0].replace(" ","-") }}">
+          {{ categories[-1][0] }}
+        </a>
       </div>
     </div>
+
+    <div class="d-flex col-3 col-md-2">
+      <!--<a class="btn clr sm m-auto" href="#" data-bs-toggle="modal" data-bs-target="#order-modal" data-text="order">ORDER</a>-->
+      <a class="btn clr sm m-auto" href="https://order.online/store/HOTSWORDS-1669218/" data-text="order">ORDER</a>
+    </div>
+  </div>
+
+  <div id="food" class="home-section">
+
 
     <div class="row justify-content-center">
       <div class="col-11 col-sm-10">
@@ -183,15 +226,14 @@
   </div>
 
   <div id="contact" class="home-section">
-    {% include "_sticky-header.html" %}
 
     <div class="row mt-5 justify-content-center">
       <div class="col-11 col-md-8">
         <h1 class="page-title">Contact</h1>
         <p>
           <strong class="food-name">Location</strong> <br/>
-          2118 S Congress Ave<br/>
-          Austin, TX 787
+          5002 Hamilton Rd<br />
+          Austin, TX 78759
         </p>
         <p>
           <strong class="food-name">Phone</strong><br/>
