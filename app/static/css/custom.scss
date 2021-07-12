@@ -13,6 +13,8 @@ $spacers: (
 $enable-smooth-scroll: false;
 $primary-color: #2e225e;
 $secondary-color: #b11e25;
+$primary: $primary-color;
+$secondary: $secondary-color;
 $hover-color: lighten($primary-color, 10%);
 $body-font: 'Montserrat', 'Helvetica', sans-serif;
 $title-font: 'Montserrat Alternates', 'Helvetica', sans-serif;
@@ -172,8 +174,8 @@ a:before {
   text-decoration: underline;
 }
 
-.modal a:hover {
-  color: $hover-color;
+.modal a.btn {
+  text-decoration: none;
 }
 
 .app-download-btn {
