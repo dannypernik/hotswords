@@ -361,7 +361,7 @@ a:before {
   overflow: auto;
 }
 
-.home-section a:hover {
+a:hover {
   color: $secondary-color;
 }
 
@@ -411,6 +411,11 @@ a:before {
   text-transform: uppercase;
 }
 
+.anchor-margin {
+  margin-top: -81px;
+  padding-top: 133px;
+}
+
 .category-title  {
   margin-top: -81px;
   padding-top: 133px;
@@ -424,14 +429,14 @@ a:before {
 }
 
 @media screen and (max-width: 833px) {
-  .category-title {
+  .category-title, .anchor-margin {
     margin-top: -99px;
     padding-top: 144px;
   }
 }
 
 @media screen and (max-width: 461px) {
-  .category-title {
+  .category-title, .anchor-margin {
     margin-top: -137px;
     padding-top: 177px;
   }
