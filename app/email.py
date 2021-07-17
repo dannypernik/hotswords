@@ -11,12 +11,12 @@ def send_inquiry_email(user, message):
       'Messages': [
         {
           "From": {
-            "Email": app.config['MAIL_USERNAME'],
+            "Email": app.config['ADMINS'][0],
             "Name": "Hotswords"
           },
           "To": [
             {
-              "Email": app.config['ADMINS'][0],
+              "Email": app.config['MAIL_USERNAME'],
             }
           ],
           "Subject": "Contact Form Submission: " + user.first_name,
