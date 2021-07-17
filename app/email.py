@@ -11,7 +11,7 @@ def send_inquiry_email(user, message):
       'Messages': [
         {
           "From": {
-            "Email": app.config['ADMINS'][0],
+            "Email": app.config['MAIL_USERNAME'],
             "Name": "Hotswords.com"
           },
           "To": [
