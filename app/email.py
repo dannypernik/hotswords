@@ -12,7 +12,7 @@ def send_inquiry_email(user, message):
         {
           "From": {
             "Email": app.config['MAIL_USERNAME'],
-            "Name": "Hotswords.com"
+            "Name": "Hotswords"
           },
           "To": [
             {
