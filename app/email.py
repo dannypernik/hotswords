@@ -11,15 +11,16 @@ def send_inquiry_email(user, message):
       'Messages': [
         {
           "From": {
-            "Email": app.config['ADMINS'][0],
+            "Email": app.config['MAIL_USERNAME'],
             "Name": "Hotswords"
           },
           "To": [
             {
-              "Email": app.config['MAIL_USERNAME'],
+              "Email": app.config['ADMINS'][0],
             }
           ],
           "Subject": "Contact Form Submission: " + user.first_name,
+          "ReplyTo": user.email,
           "TextPart": render_template('email/inquiry-form.txt',
                                    user=user, message=message),
         }
