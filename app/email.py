@@ -20,7 +20,6 @@ def send_inquiry_email(user, message):
             }
           ],
           "Subject": "Contact Form Submission: " + user.first_name,
-          "ReplyTo": user.email,
           "TextPart": render_template('email/inquiry-form.txt',
                                    user=user, message=message),
         }
