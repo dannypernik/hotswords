@@ -6154,6 +6154,14 @@ a:before {
   font-size: calc(1.75rem + 2vw);
 }
 
+.page-title a {
+  text-decoration: none;
+}
+
+.page-title a:hover {
+  color: #b11e25;
+}
+
 .footer {
   padding: 20px;
   background-color: #2e225e;
