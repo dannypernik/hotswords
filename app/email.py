@@ -19,6 +19,11 @@ def send_inquiry_email(user, message):
               "Email": app.config['ADMINS'][0],
             }
           ],
+          "ReplyTo": [
+            {
+                "Email": user.email,
+            }
+          ]
           "Subject": "Contact Form Submission: " + user.first_name,
           "TextPart": render_template('email/inquiry-form.txt',
                                    user=user, message=message),
