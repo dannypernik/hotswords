@@ -45,6 +45,10 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/6a56069d22f85880d24ebbad5a78554c.txt')
+def about():
+    return render_template('6a56069d22f85880d24ebbad5a78554c.txt')
+
 @app.route('/draft')
 def draft():
     return render_template('draft.html')
