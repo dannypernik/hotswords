@@ -149,9 +149,9 @@ a:before {
   background-color: transparent;
 }
 
-.btn:hover, .menu-link:hover {
-  background-color: $hover-color;
-  border-color: $hover-color;
+.btn:hover, .menu-link:hover, input[type="submit"]:hover {
+  background-color: $secondary-color;
+  border-color: $secondary-color;
   color: white;
 }
 

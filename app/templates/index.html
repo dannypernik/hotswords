@@ -5,11 +5,16 @@
   <meta property="og:title" content="HOTSWORDS" />
   <meta property="og:description" content="Lava Rock Kebabs" />
   <meta property="og:image" content="{{ url_for('static', filename='img/og-image.jpg') }}" />
+
+  {{ super() }}
+
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/glider.min.css') }}">
   <link href="{{ url_for('static', filename="css/all.css" )}}" rel="stylesheet">
   <script defer src="{{ url_for('static', filename="js/all.js") }}"></script>
-  {{ super() }}
+
+  <!-- Chow Now slideout script -->
+  <script src='https://cf.chownowcdn.com/latest/static/integrations/ordering-modal.min.js' data-chownow-company-id='30097'></script>
 {% endblock head %}
 
 {% block navbar %}{% endblock navbar %}
@@ -64,26 +69,30 @@
         <div class="container-fluid">
           <div class="row">
             <div class="modal-header mt-2">
-              <h1 class="modal-title">Want free delivery?</h1>
+              <!--<h1 class="modal-title">Want free delivery?</h1>-->
+              <h1 class="modal-title">Need it now or later?</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
           </div>
           <div class="modal-body">
-            <div class="row">
+            <!--<div class="row">
               Download the HOTSWORDS app and save.
-            </div>
+            </div>-->
             <div class="mb-3 mt-1">
               <!--<a class="btn me-1" href="#" data-bs-toggle="modal" data-bs-target="#app-modal" data-bs-dismiss="modal">
                 Get the app
               </a>-->
-              <a href="https://order.online/store/HOTSWORDS-1669218/" class="btn">
-                Order online
+              <a class="chownow-order-online btn me-1" href="https://ordering.chownow.com/order/30097/locations" target="_blank">
+                Order now
               </a>
-              <div class="ms-1">
+              <a class="btn ms-1 sec" href="https://www.ezcater.com/catering/pvt/hotswords-3">
+                Order catering
+              </a>
+              <!--<div class="ms-1">
                 <a href="https://www.ezcater.com/catering/pvt/hotswords-3">
                   Order catering
                 </a>
-              </div>
+              </div>-->
             </div>
           </div>
         </div>

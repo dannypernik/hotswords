@@ -6087,9 +6087,9 @@ a:before {
   background-color: transparent;
 }
 
-.btn:hover, .menu-link:hover {
-  background-color: #403083;
-  border-color: #403083;
+.btn:hover, .menu-link:hover, input[type=submit]:hover {
+  background-color: #b11e25;
+  border-color: #b11e25;
   color: white;
 }
 
