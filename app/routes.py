@@ -24,7 +24,7 @@ def dir_last_updated(folder):
 def index():
     form = InquiryForm()
     categories = Food.query.with_entities(Food.category).distinct()
-    items = Food.query.all()
+    items = Food.query.order_by(Food.order).all()
     images = []
     for i in os.listdir('app/static/img'):
         images.append(i)
