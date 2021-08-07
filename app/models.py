@@ -54,6 +54,7 @@ class Food(db.Model):
     description = db.Column(db.String(1024))
     category = db.Column(db.String(64))
     order = db.Column(db.Float())
+    veg = db.Column(db.Integer())
 
     def __repr__(self):
         return '<Food {}>'.format(self.name)
