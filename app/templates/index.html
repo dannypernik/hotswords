@@ -172,6 +172,10 @@
                   <div class="row mb-2">
                     <div class="food-name col-9">
                       {{ i.name }}
+
+                      {% if i.veg==1 %}
+                        <img class="veg-icon" src="{{ url_for('static', filename='img/veg.svg') }}" />
+                      {% endif %}
                     </div>
                     <div class="food-price col-3 text-end">
                       ${{ i.price }}

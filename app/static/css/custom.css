@@ -6363,6 +6363,12 @@ a:hover {
   text-transform: uppercase;
 }
 
+.veg-icon {
+  position: absolute;
+  height: 1.5rem;
+  margin: 0.25rem 1rem;
+}
+
 @media screen and (max-width: 833px) {
   .category-title, .anchor-margin {
     margin-top: -99px;
