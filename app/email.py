@@ -22,7 +22,7 @@ def send_inquiry_email(user, message):
           "ReplyTo": {
                 "Email": user.email,
           },
-          "Subject": "Contact Form Submission: " + user.first_name,
+          "Subject": "Hotswords: Message from " + user.first_name,
           "TextPart": render_template('email/inquiry-form.txt',
                                    user=user, message=message),
         }
