@@ -15,7 +15,7 @@
 
       {% block styles %}
         <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css', u=last_updated) }}">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Montserrat+Alternates&display=swap"
           rel="stylesheet">
       {% endblock styles %}
 
@@ -38,7 +38,6 @@
       <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon/favicon.png' ) }}">
       <meta name="msapplication-TileColor" content="#00aba9">
       <meta name="theme-color" content="#ffffff">
-      
     {% endblock head %}
   </head>
 
