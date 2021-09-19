@@ -32,7 +32,7 @@
       {% endif %}
     {% endwith %}
     <nav class="row justify-content-center">
-      <div class="col-10">
+      <div class="col col-md-10">
         <div class="row justify-content-center justify-content-md-end">
           <div class="home-nav col col-md-7 col-lg-6 col-xl-5">
             <div><a href="#appetizers" data-text="menu">menu</a></div>
@@ -68,30 +68,26 @@
         <div class="container-fluid">
           <div class="row">
             <div class="modal-header mt-2">
-              <!--<h1 class="modal-title">Want free delivery?</h1>-->
-              <h1 class="modal-title">Need it now or later?</h1>
+              <h1 class="modal-title">Want free delivery?</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
           </div>
           <div class="modal-body">
-            <!--<div class="row">
+            <div class="row">
               Download the HOTSWORDS app and save.
-            </div>-->
-            <div class="mb-3 mt-1">
-              <!--<a class="btn me-1" href="#" data-bs-toggle="modal" data-bs-target="#app-modal" data-bs-dismiss="modal">
+            </div>
+            <div class="mt-1">
+              <a class="btn me-1 my-1" href="#" data-bs-toggle="modal" data-bs-target="#app-modal" data-bs-dismiss="modal">
                 Get the app
-              </a>-->
-              <a class="chownow-order-online btn me-1" href="https://ordering.chownow.com/order/30097/locations" target="_blank">
+              </a>
+              <a class="chownow-order-online btn sec my-1" href="https://ordering.chownow.com/order/30097/locations" target="_blank">
                 Order now
               </a>
-              <a class="btn ms-1 sec" href="https://www.ezcater.com/catering/pvt/hotswords-3">
-                Order catering
-              </a>
-              <!--<div class="ms-1">
+              <div class="ms-1 my-2">
                 <a href="https://www.ezcater.com/catering/pvt/hotswords-3">
                   Order catering
                 </a>
-              </div>-->
+              </div>
             </div>
           </div>
         </div>
@@ -104,21 +100,19 @@
       <div class="modal-content">
         <div class="container-fluid">
           <div class="row">
-            <div class="modal-header my-3">
+            <div class="modal-header mt-3">
               <h1 class="modal-title">Select your download</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
           </div>
           <div class="modal-body">
-            <div class="row mb-3">
+            <div class="row g-0">
               <div class="col">
-                <a href="#">
+                <a href="https://apps.apple.com/us/app/id1580020874" class="m-1" target="_blank">
                   <img class="app-download-btn" src="{{ url_for('static', filename='img/ios-download.svg') }}"
                     alt="Download for iOS">
                 </a>
-              </div>
-              <div class="col">
-                <a href="#">
+                <a href="#" class="m-1" target="_blank">
                   <img class="app-download-btn" src="{{ url_for('static', filename='img/android-download.svg') }}"
                     alt="Download for Android">
                 </a>
@@ -218,7 +212,7 @@
         {% endfor %}
 
         <div class="home-next row">
-          <a href="#contact">
+          <a href="#contact" class="mt-4">
             <h2>
               CONTACT
             </h2>
@@ -238,12 +232,16 @@
     <div class="row mt-3 justify-content-center">
       <div class="col-11 col-md-8">
         <h1 class="page-title">
-          <a href="mailto:eat@hotswords.com" target="blank">eat@hotswords.com</a>
+          Contact
         </h1>
-        <p>
+        <p class="mt-4">
           <strong class="food-name">Location</strong> <br/>
           5002 Hamilton Rd<br />
           Austin, TX 78759
+        </p>
+        <p>
+          <strong class="food-name">Email</strong><br/>
+          <a href="mailto:eat@hotswords.com" target="blank">eat@hotswords.com</a>
         </p>
         <p>
           <strong class="food-name">Phone</strong><br/>
@@ -265,7 +263,7 @@
       </div>
     </div>
 
-    <div class="row mt-4 justify-content-center">
+    <!--<div class="row mt-4 justify-content-center">
       <div class="col-11 col-md-8">
         <h1 class="page-title">Send us a message</h1>
 
@@ -279,7 +277,7 @@
           <input type="submit" value="Submit"/>
         </form>
       </div>
-    </div>
+    </div>-->
   </div>
 
   {% block end_scripts %}
