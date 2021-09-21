@@ -6278,7 +6278,7 @@ a:before {
   color: white;
   font-size: 2rem;
   text-decoration: none;
-  padding: calc(4rem + 2vw) 0;
+  padding: calc(3rem + 2vw) 0;
   text-transform: uppercase;
 }
 
