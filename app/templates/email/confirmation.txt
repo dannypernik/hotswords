@@ -1,0 +1,4 @@
+Hi {{ user.first_name }}, thank you for contacting Hotswords. We have received your message and will get back to you soon. You are welcome to reply to this email if you wish to add further details.
+
+Your message:
+{{ message }}

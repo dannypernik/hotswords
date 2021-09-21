@@ -36,7 +36,7 @@ def index():
         db.session.commit()
         send_inquiry_email(user, message)
         print(app.config['ADMINS'])
-        flash("Thank you for your message. We will be in touch!")
+        flash("Please check " + user.email + " for a confirmation email. Thank you for reaching out!")
         return redirect(url_for('index', _anchor="home"))
     return render_template('index.html', form=form, categories=categories, items=items, \
         images=images, last_updated=dir_last_updated('app/static'))
