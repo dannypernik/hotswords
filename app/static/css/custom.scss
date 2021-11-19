@@ -381,6 +381,10 @@ a:hover {
   color: white;
 }
 
+#start-modal .modal-dialog {
+  max-width: 750px;
+}
+
 #food, #contact {
   overflow: unset;
 }

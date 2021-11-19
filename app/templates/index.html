@@ -19,6 +19,55 @@
 {% block navbar %}{% endblock navbar %}
 
 {% block content %}
+  <div id="start-modal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="modal-header mt-2">
+              <h1 class="modal-title"></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <p>Dear HOTSWORDS family,</p>
+              <p>
+                First of all, I want to say thank you so much to all of you for
+                the positivity and loyal support you’ve shown us over the past months.
+                It has been a great motivation to me personally to hear how much
+                you’ve enjoyed our food and service. It is with a heavy heart that
+                we have decided to shift our restaurant to catering only. The reasons
+                behind this decision are complicated, but I do hope and trust that
+                HOTSWORDS will be able to fully open again one day in the future.
+              </p>
+              <p>
+                I also want to give a big thank you to my team, who have shown
+                so much dedication to their work and without whom HOTSWORDS would
+                never have been possible. I am very happy to share that we have
+                all decided to stay together as we transition to the next phase.
+              </p>
+              <p>
+                Please do not hesitate to reach out to me through the contact form
+                at the bottom of this page for catering requests or anything else.
+                It is a pleasure and honor to serve you!
+              </p>
+              <p>
+                Blessings,<br/>
+                Mo Alkhdour, Owner and Head Chef
+              </p>
+              <button class="btn" class="btn-close" data-bs-dismiss="modal">
+                Continue to order catering
+              </button>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="home" class="home-section inverse text-center">
     {% with messages = get_flashed_messages() %}
       {% if messages %}
@@ -68,26 +117,28 @@
         <div class="container-fluid">
           <div class="row">
             <div class="modal-header mt-2">
-              <h1 class="modal-title">Want free delivery?</h1>
+              <h1 class="modal-title">Order catering</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
           </div>
           <div class="modal-body">
             <div class="row">
-              Download the HOTSWORDS app and save.
+              Please send us a message with details of your order, and we will be in touch.
             </div>
             <div class="mt-1">
-              <a class="btn me-1 my-1" href="#" data-bs-toggle="modal" data-bs-target="#app-modal" data-bs-dismiss="modal">
-                Get the app
+              <a href="#contact">
+                <button class="btn me-1 my-1" data-bs-toggle="modal" data-bs-dismiss="modal">
+                  Contact us
+                </button>
               </a>
-              <a class="chownow-order-online btn sec my-1" href="https://ordering.chownow.com/order/30097/locations" target="_blank">
+              <!--<a class="chownow-order-online btn sec my-1" href="https://ordering.chownow.com/order/30097/locations" target="_blank">
                 Order now
               </a>
               <div class="ms-1 my-2">
                 <a href="https://www.ezcater.com/catering/pvt/hotswords-3">
                   Order catering
                 </a>
-              </div>
+              </div>-->
             </div>
           </div>
         </div>
@@ -312,6 +363,11 @@
     </script>
 
     <script type="text/javascript">
+      var myModal = new bootstrap.Modal(document.getElementById('start-modal'));
+      window.onload = function() {
+        myModal.show();
+      };
+
      function onSubmit(token) {
        document.getElementById("inquiry-form").submit();
      }
