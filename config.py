@@ -8,8 +8,8 @@ class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'swe465hni8yt7rfi'
     MAILJET_KEY = os.environ.get('MAILJET_KEY')
     MAILJET_SECRET = os.environ.get('MAILJET_SECRET')
-    RECAPTCHA_PUBLIC_KEY = os.environ.get('RC_SITE_KEY')
-    RECAPTCHA_PRIVATE_KEY = os.environ.get('RC_SECRET_KEY')
+    HCAPTCHA_SITE_KEY = os.environ.get('HCAPTCHA_SITE_KEY')
+    HCAPTCHA_SECRET_KEY = os.environ.get('HCAPTCHA_SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False

@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, flash, Markup, redirect, url_for, request, send_from_directory
-from app import app, db
+from app import app, db, hcaptcha
 from app.forms import InquiryForm, EmailForm, SignupForm, LoginForm, EditProfileForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Food
@@ -30,6 +30,11 @@ def index():
         images.append(i)
 
     if form.validate_on_submit():
+        if hcaptcha.verify():
+            pass
+        else:
+            flash('Please complete the hCaptcha challenge to submit the form.', 'error')
+            return redirect(url_for('index', _anchor="home"))
         user = User(first_name=form.first_name.data, email=form.email.data, phone=form.phone.data)
         message = form.message.data
         db.session.add(user)

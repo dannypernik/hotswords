@@ -6,6 +6,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
+from flask_hcaptcha import hCaptcha
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -13,6 +14,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db, render_as_batch=True, compare_type=True)
 login = LoginManager(app)
 login.login_view = 'login'
+hcaptcha = hCaptcha(app)
 
 from app import routes, models, errors
 app.config['TEMPLATES_AUTO_RELOAD'] = True
