@@ -69,10 +69,10 @@
   </div>
 
   <div id="home" class="home-section inverse text-center">
-    {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
-        {% for message in messages %}
-          <div class="row justify-content-center alert alert-info">
+        {% for category, message in messages %}
+          <div class="row justify-content-center alert {{ category }}">
             <div class="col-sm-11 col-md-10 col-lg-9">
               <div role="alert">{{ message }}</div>
             </div>
