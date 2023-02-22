@@ -188,7 +188,7 @@
     <div id="food-header" class="col-9 col-md-7">
       {% for c in categories[:-1] %}
         <div class="header-item">
-          <a href="#{{ c[0].replace(" ","-") }}" data-text="{{ c[0].replace(" ","-") }}">
+          <a href="#{{ c[0].replace(' ','-') }}" data-text="{{ c[0].replace(' ','-') }}">
             {{ c[0] }}
           </a>
         </div>&bull;
@@ -196,7 +196,7 @@
 
       <!-- remove bullet separator after last category -->
       <div class="header-item">
-        <a href="#{{ categories[-1][0].replace(" ","-") }}" data-text="{{ categories[-1][0].replace(" ","-") }}">
+        <a href="#{{ categories[-1][0].replace(' ','-') }}" data-text="{{ categories[-1][0].replace(' ','-') }}">
           {{ categories[-1][0] }}
         </a>
       </div>
@@ -212,7 +212,7 @@
       <div class="col-11 col-sm-10">
 
         {% for c in categories %}
-          <h1 id="{{ c[0].replace(" ","-") }}" class="category-title">{{ c[0] }}</h1>
+          <h1 id="{{ c[0].replace(' ','-') }}" class="category-title">{{ c[0] }}</h1>
 
           <div class="row justify-content-center">
             <div class="col-md-6">
@@ -242,10 +242,10 @@
                 <div class="glider">
                   {% set count = namespace(value=0) %}
                   {% for i in items %}
-                      {% if i.category == c[0] and i.name.replace(" ","-") + '.jpg' in images %}
+                      {% if i.category == c[0] and i.name.replace(' ','-') + '.jpg' in images %}
                         {% set count.value = count.value + 1 %}
                         <div>
-                          <img src="{{ url_for('static', filename='img/' + i.name.replace(" ","-") + '.jpg') }}">
+                          <img src="{{ url_for('static', filename='img/' + i.name.replace(' ','-') + '.jpg') }}">
                           <p class="img-caption my-2">{{ i.name }}</p>
                         </div>
                       {% endif %}
