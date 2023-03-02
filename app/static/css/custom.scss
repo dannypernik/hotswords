@@ -229,10 +229,22 @@ a:before {
 }
 
 .footer {
+  display: flex;
   padding: 20px;
   background-color: $primary-color;
   color: white;
   margin-top: 15rem;
+}
+
+#creatorsweb {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: $secondary-color;
+
+  &:hover {
+    color: $secondary-color;
+  }
 }
 
 // Nav //
