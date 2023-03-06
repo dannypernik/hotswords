@@ -5364,11 +5364,13 @@ a:before {
 }
 
 .footer {
-  display: flex;
-  padding: 20px;
   background-color: #2e225e;
   color: white;
   margin-top: 15rem;
+}
+.footer td {
+  padding-top: 1rem;
+  vertical-align: top;
 }
 
 #creatorsweb {

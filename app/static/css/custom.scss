@@ -229,11 +229,14 @@ a:before {
 }
 
 .footer {
-  display: flex;
-  padding: 20px;
   background-color: $primary-color;
   color: white;
   margin-top: 15rem;
+
+  td {
+    padding-top: 1rem;
+    vertical-align: top;
+  }
 }
 
 #creatorsweb {
